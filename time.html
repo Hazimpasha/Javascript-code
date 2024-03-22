@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylee.css">
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <title>Javascript</title>
+</head>
+<body>
+    <div class="main-box">
+        <div class="sub-box">
+          
+          <div id="current-time"></div>
+        </div>
+        <div class="sub-box">
+          <p id="liveDate"></p>
+          <div id="current-date"></div>
+        </div>
+      </div>
+      <br>
+      <div>
+      <p></p>
+<p>Click the button to print the current page.</p>
+<button onclick="print_current_page()">Print this page</button>
+</div>
+<div>
+
+<p id="currentDate"></p>
+
+</div>
+<div>
+
+    <p id="rectangle"> hello</p>
+    
+    </div>
+      <script>
+        let now = new Date();
+        // document.getElementById("liveDate").innerHTML=now;
+        console.log(now)
+        console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
+
+        function updateTime(){
+        const currentDay = new Date();
+const hour = currentDay.getHours();
+const minutes = currentDay.getMinutes();
+const seconds = currentDay.getSeconds();
+let time = hour + ":" + minutes + ":" + seconds;
+document.getElementById("current-date").innerHTML=time;
+        
+console.log(time);
+        }
+updateTime();
+  setInterval(updateTime, 1000);
+
+function print_current_page(){
+
+    window.print();
+}
+
+function displayCurrentDate() {
+    var today = new Date();
+
+    // Get the day of the month
+    var dd = today.getDate();
+
+    // Get the month (adding 1 because months are zero-based)
+    var mm = today.getMonth() + 1;
+
+    // Get the year
+    var yyyy = today.getFullYear();
+
+    // Add leading zero if the day is less than 10
+    if (dd < 10) {
+        dd = '0' + dd;
+    } 
+
+    // Add leading zero if the month is less than 10
+    if (mm < 10) {
+        mm = '0' + mm;
+    } 
+
+    // Format the date as mm-dd-yyyy
+    var formattedDate1 = mm + '-' + dd + '-' + yyyy;
+    console.log(formattedDate1);
+
+    // Format the date as mm/dd/yyyy
+    var formattedDate2 = mm + '/' + dd + '/' + yyyy;
+    console.log(formattedDate2);
+
+    // Format the date as dd-mm-yyyy
+    var formattedDate3 = dd + '-' + mm + '-' + yyyy;
+    console.log(formattedDate3);
+
+    // Format the date as dd/mm/yyyy
+    var formattedDate4 = dd + '/' + mm + '/' + yyyy;
+    console.log(formattedDate4);
+
+    // Choose one format to display on the webpage
+    var chosenFormat = formattedDate2; // Change this as needed
+
+    // Display the chosen format on the webpage
+    document.getElementById("currentDate").innerHTML = chosenFormat;
+}
+
+// Call the function to display the current date
+displayCurrentDate();
+
+let side1 = 5; 
+let side2 = 6; 
+let side3 = 7; 
+
+// Calculate the semi-perimeter of the triangle
+let s = (side1 + side2 + side3) / 2;
+
+// Use Heron's formula to calculate the area of the triangle
+let area = Math.sqrt(s * ((s - side1) * (s - side2) * (s - side3)));
+
+// Log the calculated area to the console
+console.log(area);
+document.getElementById("rectangle").innerHTML=area;
+
+      </script>
+
+</body>
+</html>
